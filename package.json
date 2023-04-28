@@ -4,16 +4,20 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "copy:css && copy:icons && vite",
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "copy:css": "copyfiles copyfiles -u 4 node_modules/@lansforsakringar/components/dist/**/* public/lfui",
+    "copy:icons": "copyfiles copyfiles -u 4 node_modules/@lansforsakringar/components/dist/lfui/lf-icons/sprite/**/* public/lf-icons"
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "@lansforsakringar/components": "^10.3.3"
   },
   "devDependencies": {
+    "copyfiles": "^2.4.1",
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react": "^4.0.0",
